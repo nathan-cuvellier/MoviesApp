@@ -9,10 +9,9 @@ import Foundation
 import UIKit
 
 class GenreCollectionViewCell : UICollectionViewCell {
-    
-    
-    @IBOutlet weak var categoryLabel: UILabel!
-    
+        
+    @IBOutlet weak var genreLabel: UILabel!
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.masksToBounds = false
@@ -20,7 +19,7 @@ class GenreCollectionViewCell : UICollectionViewCell {
     }
     
     func setGenreLabel(genre: Genre) {
-        categoryLabel.text = genre.name
+        genreLabel.text = genre.name
     }
     
 }

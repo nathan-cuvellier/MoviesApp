@@ -20,14 +20,3 @@ struct GenreRepository {
     }
     
 }
-
-struct Genre: Decodable {
-    let id: Int
-    let name: String
-}
-
-struct GenresWSResponse: Decodable {
-    let genres: [Genre]
-    let page: Int?
-    let totalPages: Int?
-}
