@@ -1,5 +1,5 @@
 //
-//  CategoryRepository.swift
+//  GenreRepository.swift
 //  AppMovies
 //
 //  Created by nathan on 18/05/2021.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CategoryRepository {
+struct GenreRepository {
     
-    func getCategories(completion: @escaping ((CategoriesWSResponse?) -> Void)) -> Void {
+    func getGenres(completion: @escaping ((GenresWSResponse?) -> Void)) -> Void {
         let url = ApiManager.shared.createURL(pathUrl: ApiPath.categories)
         
         if let categoryUrl = url?.url {
             RequestManager.shared.requestData(url: categoryUrl) { data in
-                completion(try? JSONDecoder().decode(CategoriesWSResponse.self, from: data))
+                completion(try? JSONDecoder().decode(GenresWSResponse.self, from: data))
             }
         }
     }
@@ -26,7 +26,7 @@ struct Genre: Decodable {
     let name: String
 }
 
-struct CategoriesWSResponse: Decodable {
+struct GenresWSResponse: Decodable {
     let genres: [Genre]
     let page: Int?
     let totalPages: Int?

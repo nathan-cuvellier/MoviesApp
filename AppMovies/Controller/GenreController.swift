@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryController: UIViewController {
+class GenreController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
