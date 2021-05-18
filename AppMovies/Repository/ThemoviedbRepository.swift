@@ -36,13 +36,17 @@ struct ApiManager {
       }
     }
     
-    func createURL(pathUrl : ApiPath) -> URLComponents? {
+    func createURL(pathUrl : ApiPath, queryParams: [URLQueryItem]? = nil) -> URLComponents? {
         var url = URLComponents(string: "\(self.BASE_URL)\(pathUrl.rawValue)")
         
         url?.queryItems = [
             URLQueryItem(name: "api_key", value: apiKey),
             URLQueryItem(name: "language", value: self.LANGUAGE)
         ]
+        
+        if let queryParams = queryParams {
+            url?.queryItems! += queryParams
+        }
         
         return url
     }
