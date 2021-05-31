@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct Movie {
+struct Movie : Decodable {
     var id: Int
     var title: String
     var subtitle: String?
     var releaseDate: String?
     var duration: Int?
     var genre: [String]?
-    var description: String?
+    var overview: String?
     var trailerUrl: String?
     var imageUrl: String?
     var posterUrl: String?
     
-    init?(from movieResponse: MoviesWSResponse)
+    init?(from movieResponse: MovieWSResponse)
     {
         guard let id = movieResponse.id, let title = movieResponse.title, let releaseDate = movieResponse.releaseDate else {
             return nil
@@ -28,7 +28,7 @@ struct Movie {
         self.id = id
         self.title = title
         self.releaseDate = releaseDate
-        self.description = movieResponse.overview
+        self.overview = movieResponse.overview
         if let backdrop = movieResponse.backdropPath {
             self.imageUrl = ApiManager.shared.IMAGE_BASE_URL + "w500" + backdrop
         }
@@ -68,7 +68,14 @@ struct Movie {
 
 struct MovieByGenreResponse: Decodable {
     let page, totalResults, totalPages: Int?
-    let results: [MoviesWSResponse]?
+    let results: [MovieWSResponse]?
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
+        case results
+    }
     
     func toMovieByGenre() -> [Movie] {
         guard let results = self.results else {
@@ -80,11 +87,20 @@ struct MovieByGenreResponse: Decodable {
     }
 }
 
-struct MoviesWSResponse: Decodable {
+struct MovieWSResponse: Decodable {
     let id: Int?
     let backdropPath: String?
-    let genre: [Int]?
+    let genres: [Int]?
     let title: String?
     let overview: String?
     let releaseDate: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case backdropPath = "backdrop_path"
+        case genres = "genre_ids"
+        case title
+        case overview
+        case releaseDate = "release_date"
+    }
 }

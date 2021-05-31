@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieRepo {
+struct MoviesRepository {
     
     func getMoviesByGenre(page: Int = 1, genreId: Int? = nil, completion: @escaping ((MovieByGenreResponse?) -> Void)) {
         

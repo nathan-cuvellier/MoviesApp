@@ -14,6 +14,8 @@ class GenreController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var genres: [Genre] = []
+    
+    private let identifier = "category_to_movies"
 
     private let genreRepository = GenreRepository()
     
@@ -31,7 +33,22 @@ class GenreController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == identifier {
+                let moviesController = segue.destination as! MoviesController
+                if let genre = sender as? Genre {
+                    moviesController.genre = genre
+                }
+            }
+        }
 
+}
+
+extension GenreController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            self.performSegue(withIdentifier: identifier, sender: genres[indexPath.item])
+    }
 }
 
 extension GenreController:
@@ -52,11 +69,6 @@ extension GenreController:
         
         return cell
     }
-}
-
-extension GenreController:
-    UICollectionViewDelegate {
-    
 }
 
 extension GenreController:

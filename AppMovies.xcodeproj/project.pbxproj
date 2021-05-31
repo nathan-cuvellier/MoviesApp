@@ -14,6 +14,8 @@
 		D84E09DD2625B15C00631B64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D84E09DB2625B15C00631B64 /* LaunchScreen.storyboard */; };
 		D84E09E82625B15D00631B64 /* AppMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E09E72625B15D00631B64 /* AppMoviesTests.swift */; };
 		D84E09F32625B15D00631B64 /* AppMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E09F22625B15D00631B64 /* AppMoviesUITests.swift */; };
+		D84ED96A2665096500380669 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84ED9692665096500380669 /* MovieCell.swift */; };
+		D84ED9722665542900380669 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84ED9712665542900380669 /* ImageManager.swift */; };
 		D84EF1092653A6A4009F4F78 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF1082653A6A4009F4F78 /* GenreController.swift */; };
 		D84EF1152653B116009F4F78 /* ThemoviedbRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF1142653B116009F4F78 /* ThemoviedbRepository.swift */; };
 		D84EF1202653B76E009F4F78 /* GenreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF11F2653B76E009F4F78 /* GenreRepository.swift */; };
@@ -24,7 +26,7 @@
 		D84EF1632653EEC4009F4F78 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF1622653EEC4009F4F78 /* Genre.swift */; };
 		D84EF1682654063E009F4F78 /* MoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF1672654063E009F4F78 /* MoviesController.swift */; };
 		D84EF16D265406D0009F4F78 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF16C265406D0009F4F78 /* Movie.swift */; };
-		D84EF17B26540D19009F4F78 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF17A26540D18009F4F78 /* MovieRepository.swift */; };
+		D84EF17B26540D19009F4F78 /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84EF17A26540D18009F4F78 /* MoviesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		D84E09EE2625B15D00631B64 /* AppMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84E09F22625B15D00631B64 /* AppMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMoviesUITests.swift; sourceTree = "<group>"; };
 		D84E09F42625B15D00631B64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D84ED9692665096500380669 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		D84ED9712665542900380669 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		D84EF1082653A6A4009F4F78 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
 		D84EF1142653B116009F4F78 /* ThemoviedbRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemoviedbRepository.swift; sourceTree = "<group>"; };
 		D84EF11F2653B76E009F4F78 /* GenreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRepository.swift; sourceTree = "<group>"; };
@@ -67,7 +71,7 @@
 		D84EF1622653EEC4009F4F78 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		D84EF1672654063E009F4F78 /* MoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesController.swift; sourceTree = "<group>"; };
 		D84EF16C265406D0009F4F78 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		D84EF17A26540D18009F4F78 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
+		D84EF17A26540D18009F4F78 /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +177,8 @@
 				D84EF1142653B116009F4F78 /* ThemoviedbRepository.swift */,
 				D84EF11F2653B76E009F4F78 /* GenreRepository.swift */,
 				D84EF1242653BA14009F4F78 /* RequestManager.swift */,
-				D84EF17A26540D18009F4F78 /* MovieRepository.swift */,
+				D84EF17A26540D18009F4F78 /* MoviesRepository.swift */,
+				D84ED9712665542900380669 /* ImageManager.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				D84EF1542653E040009F4F78 /* GenreCollectionViewCell.swift */,
 				D84EF1622653EEC4009F4F78 /* Genre.swift */,
 				D84EF16C265406D0009F4F78 /* Movie.swift */,
+				D84ED9692665096500380669 /* MovieCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84EF1632653EEC4009F4F78 /* Genre.swift in Sources */,
+				D84ED96A2665096500380669 /* MovieCell.swift in Sources */,
 				D84EF1682654063E009F4F78 /* MoviesController.swift in Sources */,
 				D84EF1552653E040009F4F78 /* GenreCollectionViewCell.swift in Sources */,
 				D84E09D52625B15700631B64 /* ViewController.swift in Sources */,
@@ -327,7 +334,8 @@
 				D84EF1152653B116009F4F78 /* ThemoviedbRepository.swift in Sources */,
 				D84EF16D265406D0009F4F78 /* Movie.swift in Sources */,
 				D84EF1202653B76E009F4F78 /* GenreRepository.swift in Sources */,
-				D84EF17B26540D19009F4F78 /* MovieRepository.swift in Sources */,
+				D84ED9722665542900380669 /* ImageManager.swift in Sources */,
+				D84EF17B26540D19009F4F78 /* MoviesRepository.swift in Sources */,
 				D84EF1252653BA14009F4F78 /* RequestManager.swift in Sources */,
 				D84E09D32625B15700631B64 /* SceneDelegate.swift in Sources */,
 				D84EF1092653A6A4009F4F78 /* GenreController.swift in Sources */,

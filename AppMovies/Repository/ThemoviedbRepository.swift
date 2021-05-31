@@ -16,7 +16,7 @@ enum ApiPath : String {
 struct ApiManager {
     static var shared = ApiManager()
     
-    let BASE_URL = "https://api.themoviedb.org/3/"
+    let BASE_URL = "https://api.themoviedb.org/3"
     let IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
     let LANGUAGE = "fr-FR"
     
