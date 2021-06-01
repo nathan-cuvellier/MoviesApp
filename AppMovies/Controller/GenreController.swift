@@ -35,13 +35,13 @@ class GenreController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == identifier {
-                let moviesController = segue.destination as! MoviesController
-                if let genre = sender as? Genre {
-                    moviesController.genre = genre
-                }
+        if segue.identifier == identifier {
+            let moviesController = segue.destination as! MoviesController
+            if let genre = sender as? Genre {
+                moviesController.genre = genre
             }
         }
+    }
 
 }
 

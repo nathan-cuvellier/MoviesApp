@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D84B86EA266616C500466A21 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84B86E9266616C500466A21 /* MovieController.swift */; };
+		D84B86F52666252500466A21 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84B86F42666252500466A21 /* MovieRepository.swift */; };
 		D84E09D12625B15700631B64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E09D02625B15700631B64 /* AppDelegate.swift */; };
 		D84E09D32625B15700631B64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E09D22625B15700631B64 /* SceneDelegate.swift */; };
 		D84E09D52625B15700631B64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E09D42625B15700631B64 /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D84B86E9266616C500466A21 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		D84B86F42666252500466A21 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		D84E09CD2625B15700631B64 /* AppMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84E09D02625B15700631B64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D84E09D22625B15700631B64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			children = (
 				D84EF1082653A6A4009F4F78 /* GenreController.swift */,
 				D84EF1672654063E009F4F78 /* MoviesController.swift */,
+				D84B86E9266616C500466A21 /* MovieController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				D84EF1242653BA14009F4F78 /* RequestManager.swift */,
 				D84EF17A26540D18009F4F78 /* MoviesRepository.swift */,
 				D84ED9712665542900380669 /* ImageManager.swift */,
+				D84B86F42666252500466A21 /* MovieRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 				D84EF1552653E040009F4F78 /* GenreCollectionViewCell.swift in Sources */,
 				D84E09D52625B15700631B64 /* ViewController.swift in Sources */,
 				D84E09D12625B15700631B64 /* AppDelegate.swift in Sources */,
+				D84B86F52666252500466A21 /* MovieRepository.swift in Sources */,
 				D84EF1152653B116009F4F78 /* ThemoviedbRepository.swift in Sources */,
 				D84EF16D265406D0009F4F78 /* Movie.swift in Sources */,
 				D84EF1202653B76E009F4F78 /* GenreRepository.swift in Sources */,
@@ -339,6 +346,7 @@
 				D84EF1252653BA14009F4F78 /* RequestManager.swift in Sources */,
 				D84E09D32625B15700631B64 /* SceneDelegate.swift in Sources */,
 				D84EF1092653A6A4009F4F78 /* GenreController.swift in Sources */,
+				D84B86EA266616C500466A21 /* MovieController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

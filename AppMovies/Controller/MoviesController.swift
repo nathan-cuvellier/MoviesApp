@@ -18,6 +18,8 @@ class MoviesController: UIViewController {
     private let movieRepository = MoviesRepository()
     private let imageManager = ImageManager()
     
+    private let identifier = "films_to_film"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +37,22 @@ class MoviesController: UIViewController {
         })
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == identifier {
+            let movieController = segue.destination as! MovieController
+            if let idMovie = sender as? Int {
+                movieController.movieId = idMovie
+            }
+        }
+    }
 
+}
+
+extension MoviesController: UITableViewDelegate {    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: identifier, sender: movies[indexPath.item].id)
+    }
 }
 
 extension MoviesController: UITableViewDataSource {
@@ -81,7 +98,8 @@ extension MoviesController: UITableViewDataSource {
 
     
 }
-
+/*
 extension MoviesController: UITableViewDelegate {
 
 }
+*/

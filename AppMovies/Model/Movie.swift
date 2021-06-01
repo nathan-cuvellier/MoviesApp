@@ -87,6 +87,35 @@ struct MovieByGenreResponse: Decodable {
     }
 }
 
+struct MovieByIdResponse : Decodable {
+    let id: Int?
+    let adult: Bool?
+    let title: String?
+    let backdropPath: String?
+    let overview: String?
+    let subtitle: String?
+    let posterUrl: String?
+    let releaseDate: String?
+    let video: Bool?
+    let runtime: Int?
+    let genres: [Genre]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case adult
+        case backdropPath = "backdrop_path"
+        case overview
+        case posterUrl = "poster_path"
+        case releaseDate = "release_date"
+        case title
+        case subtitle = "tagline"
+        case video
+        case runtime
+        case genres
+    }
+    
+}
+
 struct MovieWSResponse: Decodable {
     let id: Int?
     let backdropPath: String?

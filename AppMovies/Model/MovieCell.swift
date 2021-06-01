@@ -12,7 +12,6 @@ class MovieCell: UITableViewCell {
     
     
     @IBOutlet weak var poster: UIImageView!
-    //@IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var overview: UILabel!
     
