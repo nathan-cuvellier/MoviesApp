@@ -81,9 +81,6 @@ extension MoviesController: UITableViewDataSource {
             return cell
         }
         
-        
-        print(url.absoluteURL)
-        
         imageManager.getImageInCache(url: url) { image, imageUrl in
             DispatchQueue.main.async() {
                 if imageUrl == url.absoluteString {
