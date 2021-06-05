@@ -6,3 +6,5 @@
 ## Movies list
 
 ![movies list](https://github.com/nathan-cuvellier/MoviesApp/blob/main/img/movies.png?raw=true)
+
+![movie](https://github.com/nathan-cuvellier/MoviesApp/blob/main/img/movie.png?raw=true)

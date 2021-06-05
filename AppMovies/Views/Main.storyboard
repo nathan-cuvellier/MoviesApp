@@ -139,7 +139,9 @@
                     <navigationItem key="navigationItem" id="B8b-8C-PPN"/>
                     <connections>
                         <outlet property="genreLabel" destination="2H1-q8-JqU" id="QSq-lD-C1w"/>
+                        <outlet property="image" destination="8aH-qd-Ucr" id="dhD-YD-IRQ"/>
                         <outlet property="overview" destination="xcF-aA-tWM" id="WbU-iV-Dbi"/>
+                        <outlet property="poster" destination="Vrm-LW-ErH" id="pPU-6V-IvE"/>
                         <outlet property="releaseDate" destination="as8-s4-Zys" id="AL3-BC-BZV"/>
                         <outlet property="runtime" destination="5bD-Ox-Ip8" id="Peb-cP-Ixs"/>
                         <outlet property="titleLabel" destination="byj-11-i7o" id="brF-gc-3gk"/>

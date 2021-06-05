@@ -13,7 +13,7 @@ struct Movie : Decodable {
     var subtitle: String?
     var releaseDate: String?
     var duration: Int?
-    var genre: [String]?
+    var genres: [String]?
     var overview: String?
     var trailerUrl: String?
     var imageUrl: String?
@@ -35,6 +35,30 @@ struct Movie : Decodable {
 
     }
     
+    init?(from movieByIdResponse: MovieByIdResponse) {
+            guard let id = movieByIdResponse.id,
+                let title = movieByIdResponse.title,
+                let releaseDate = movieByIdResponse.releaseDate,
+                let poster = movieByIdResponse.posterUrl else {
+                    return nil
+            }
+            self.id = id
+            self.title = title
+            self.subtitle = movieByIdResponse.subtitle
+            self.releaseDate = releaseDate
+            self.overview = movieByIdResponse.overview
+            if let imageUrl = movieByIdResponse.backdropPath {
+                self.imageUrl = ApiManager.shared.IMAGE_BASE_URL + "w500" + imageUrl
+            }
+            self.posterUrl = ApiManager.shared.IMAGE_BASE_URL + "w200" + poster
+            self.duration = movieByIdResponse.runtime
+            self.genres = movieByIdResponse.genres?.compactMap({ genre -> String? in
+                return genre.name
+            })
+        }
+    
+    
+    
     func toStringDuration() -> String{
         guard let duration = self.duration else {
             return "nil"
@@ -43,10 +67,10 @@ struct Movie : Decodable {
     }
     
     func toStringGenres() -> String {
-        guard let genres = self.genre else {
+        guard let genres = self.genres else {
             return "nil"
         }
-        return genres.joined(separator: "/ ")
+        return genres.joined(separator: " | ")
     }
     
     func toUrlTrailer() -> URL?{
@@ -61,6 +85,13 @@ struct Movie : Decodable {
             return nil
         }
         return URL(string: imageUrl)
+    }
+    
+    func toUrlPosterUrl() -> URL? {
+        guard let posterUrl = self.posterUrl else {
+            return nil
+        }
+        return URL(string: posterUrl)
     }
     
 }

@@ -18,6 +18,8 @@ class MovieController: UIViewController {
     @IBOutlet weak var overview: UITextView!
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var runtime: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var poster: UIImageView!
     
     private let movieRepository = MovieRepository()
     private let imageManager = ImageManager()
@@ -27,18 +29,20 @@ class MovieController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        movieRepository.getMovieById(movieId: movieId, completion: { response in
-            if let movie = response {
+        movieRepository.getMovieById(movieId: movieId) { response in
+            
+            if let movieResponse = response {
+                guard let movie = Movie(from: movieResponse) else {
+                    return
+                }
+                
+                self.movie = movie
+                
                 DispatchQueue.main.async {
                     self.titleLabel.text = movie.title
                     self.overview.text = movie.overview
                     
-                    var genres = ""
-                    movie.genres?.forEach { genre in
-                        genres += genre.name + " | "
-                    }
-                    
-                    self.genreLabel.text = String(genres.dropLast(2))
+                    self.genreLabel.text = movie.toStringGenres()
                     
                     let format = DateFormatter()
                     format.dateFormat = "yyyy-MM-dd"
@@ -52,7 +56,7 @@ class MovieController: UIViewController {
                         self.releaseDate.text = format.string(from: date)
                     }
                     
-                    if var runtimeData = movie.runtime {
+                    if var runtimeData = movieResponse.runtime {
                         let hours = Int(floor(Double(runtimeData) / 60))
                         
                         runtimeData -= hours * 60
@@ -62,11 +66,29 @@ class MovieController: UIViewController {
                         self.runtime.text = "  \(hours)h \(minutes)m"
                     }
                     
+                    if let url = movie.toUrlImageUrl() {
+                        self.imageManager.getImageInCache(url: url) { image, imageUrl in
+                            DispatchQueue.main.async() {
+                                if imageUrl ==  url.absoluteString {
+                                    self.image.image = image
+                                }
+                            }
+                        }
+                    }
+                    if let url = movie.toUrlPosterUrl() {
+                        self.imageManager.getImageInCache(url: url) { image, imageUrl in
+                            DispatchQueue.main.async() {
+                                if imageUrl ==  url.absoluteString {
+                                    self.poster.image = image
+                                }
+                            }
+                        }
+                    }
                     
                 }
                 
             }
-        })
+        }
         
     }
     
