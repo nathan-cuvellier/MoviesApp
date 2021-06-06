@@ -20,6 +20,7 @@ class MovieController: UIViewController {
     @IBOutlet weak var runtime: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var poster: UIImageView!
+    @IBOutlet weak var trailerImg: UIImageView!
     
     private let movieRepository = MovieRepository()
     private let imageManager = ImageManager()
@@ -38,7 +39,7 @@ class MovieController: UIViewController {
                 
                 self.movie = movie
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     self.titleLabel.text = movie.title
                     self.overview.text = movie.overview
                     
@@ -85,11 +86,37 @@ class MovieController: UIViewController {
                         }
                     }
                     
+                    self.loadTrailerUrl(from: movieResponse.videos)
+                    
                 }
                 
             }
         }
         
     }
+    
+    private func loadTrailerUrl(from movieVideos: MovieVideosResponse?) {
+            guard let results = movieVideos?.results else {
+                self.trailerImg.isHidden = true
+                return
+            }
+            let urlList = results.toUrlList()
+            if !urlList.isEmpty {
+                self.movie?.trailerUrl = urlList[0]
+            }
+        }
+    @IBAction func trailerBtn(_ sender: Any) {
+        if let url = movie?.toUrlTrailer() {
+            print(url)
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    /*
+    @IBAction func trailerBtn(_ sender: Any) {
+        print("click")
+        
+        
+    }*/
     
 }

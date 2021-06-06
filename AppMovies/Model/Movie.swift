@@ -130,6 +130,7 @@ struct MovieByIdResponse : Decodable {
     let video: Bool?
     let runtime: Int?
     let genres: [Genre]?
+    let videos: MovieVideosResponse?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -143,6 +144,7 @@ struct MovieByIdResponse : Decodable {
         case video
         case runtime
         case genres
+        case videos
     }
     
 }
@@ -162,5 +164,34 @@ struct MovieWSResponse: Decodable {
         case title
         case overview
         case releaseDate = "release_date"
+    }
+}
+
+
+struct MovieVideosResponse: Decodable {
+    let results: [MovieVideo]?
+}
+
+struct MovieVideo: Decodable {
+    let key: String?
+    let site: String?
+    let type: String?
+    
+    func transformToStringUrl() -> String? {
+        guard let key = key else {
+            return nil
+        }
+        if self.site == "YouTube" {
+            return "https://www.youtube.com/watch?v=\(key)"
+        }
+        return nil
+    }
+}
+
+extension Array where Element == MovieVideo {
+    func toUrlList() -> [String] {
+        return self.compactMap { (movieVideo: MovieVideo) -> String? in
+            movieVideo.transformToStringUrl()
+        }
     }
 }

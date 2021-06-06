@@ -119,6 +119,13 @@
                                     <constraint firstItem="xcF-aA-tWM" firstAttribute="top" secondItem="4GJ-dv-eS5" secondAttribute="bottom" id="Waq-ae-CLJ"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PlayButton" translatesAutoresizingMaskIntoConstraints="NO" id="HsO-58-6PF" userLabel="Trailer Btn">
+                                <rect key="frame" x="134" y="159" width="159" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hKK-5W-USj" appends="YES" id="sx5-Rc-O5z"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -145,9 +152,15 @@
                         <outlet property="releaseDate" destination="as8-s4-Zys" id="AL3-BC-BZV"/>
                         <outlet property="runtime" destination="5bD-Ox-Ip8" id="Peb-cP-Ixs"/>
                         <outlet property="titleLabel" destination="byj-11-i7o" id="brF-gc-3gk"/>
+                        <outlet property="trailerImg" destination="HsO-58-6PF" id="ox4-W9-C45"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hKK-5W-USj">
+                    <connections>
+                        <action selector="trailerBtn:" destination="BYZ-38-t0r" id="scR-nf-JT1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="379.90654205607473" y="-1227.2138228941685"/>
         </scene>
@@ -243,8 +256,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-By-tBm">
-                                                    <rect key="frame" x="112" y="40" width="296" height="53"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-By-tBm">
+                                                    <rect key="frame" x="112" y="40" width="296" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="296" id="mt3-wF-mSx"/>
                                                     </constraints>
@@ -277,7 +290,7 @@
                                                 <constraint firstItem="nzz-Dz-YWa" firstAttribute="top" secondItem="xrS-ME-fHh" secondAttribute="top" id="N9e-yo-3Q8"/>
                                                 <constraint firstItem="2r5-By-tBm" firstAttribute="top" secondItem="nzz-Dz-YWa" secondAttribute="bottom" id="RsP-bv-J1Y"/>
                                                 <constraint firstItem="Yrg-5d-U3s" firstAttribute="leading" secondItem="xrS-ME-fHh" secondAttribute="leading" id="Uq6-kB-2wI"/>
-                                                <constraint firstItem="2r5-By-tBm" firstAttribute="bottom" secondItem="xrS-ME-fHh" secondAttribute="bottomMargin" id="twc-g6-SGR"/>
+                                                <constraint firstItem="2r5-By-tBm" firstAttribute="bottom" secondItem="xrS-ME-fHh" secondAttribute="bottomMargin" constant="11" id="twc-g6-SGR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -311,6 +324,7 @@
     </scenes>
     <resources>
         <image name="Affiche" width="300" height="168"/>
+        <image name="PlayButton" width="512" height="512"/>
         <image name="Poster" width="476" height="755"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
